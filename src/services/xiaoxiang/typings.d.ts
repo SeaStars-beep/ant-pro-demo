@@ -49,8 +49,8 @@ declare namespace API {
     maxAmountGun?: number;
     minamountPay?: number;
     maxamountPay?: number;
-    current?: number;
-    pageSize?: number;
+    current: number;
+    pageSize: number;
   };
 
   type OrderDTO = {

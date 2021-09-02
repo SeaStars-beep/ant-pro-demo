@@ -128,7 +128,7 @@ const useViewModel = () => {
    */
   const handleReset = async () => {
     formRef.resetFields();
-    setQueryParams({});
+    setQueryParams({ current: 1, pageSize: 20 });
   };
   /**
    * 导出excel

@@ -40,7 +40,7 @@ const useViewModel = () => {
       title: '订单交易油站',
       dataIndex: 'gasName',
       ellipsis: true,
-    },   
+    },
     {
       title: '枪号',
       dataIndex: 'gunNo',
@@ -114,7 +114,7 @@ const useViewModel = () => {
    */
   const handleReset = async () => {
     formRef.resetFields();
-    setQueryParams({});
+    setQueryParams({ current: 1, pageSize: 20 });
   };
   /**
    * 导出excel

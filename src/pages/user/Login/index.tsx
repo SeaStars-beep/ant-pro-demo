@@ -1,11 +1,7 @@
-import {
-  LockOutlined,
-  MobileOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import { Alert,  message, Tabs } from 'antd';
+import { LockOutlined, MobileOutlined, UserOutlined } from '@ant-design/icons';
+import { Alert, message, Tabs } from 'antd';
 import React, { useState } from 'react';
-import ProForm, { ProFormCaptcha,  ProFormText } from '@ant-design/pro-form';
+import ProForm, { ProFormCaptcha, ProFormText } from '@ant-design/pro-form';
 import { Link, history, useModel } from 'umi';
 import { login } from '@/services/ant-design-pro/api';
 import { getFakeCaptcha } from '@/services/ant-design-pro/login';
@@ -80,7 +76,6 @@ const Login: React.FC = () => {
               <span className={styles.title}>小象加油</span>
             </Link>
           </div>
-      
         </div>
 
         <div className={styles.main}>
@@ -205,7 +200,6 @@ const Login: React.FC = () => {
               </>
             )}
           </ProForm>
-         
         </div>
       </div>
     </div>

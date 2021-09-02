@@ -16,7 +16,7 @@ const Index = () => {
     handleExport,
     queryParams,
   } = viewModel();
-  
+
   return (
     <PageContainer>
       <div className={styls.searchWrap}>

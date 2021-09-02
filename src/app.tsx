@@ -53,7 +53,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
     // waterMarkProps: { // 页面水印
     //   content: initialState?.currentUser?.name,
     // },
-    locale: "zh-CN" ,
+    // locale: 'zh-CN',
     footerRender: null, // () => <Footer />,
     onPageChange: () => {
       const { location } = history;

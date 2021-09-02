@@ -1,4 +1,3 @@
-
 import { PageContainer } from '@ant-design/pro-layout';
 import { Descriptions } from 'antd';
 import useViewModel from './data';
@@ -7,7 +6,7 @@ import styls from './index.less';
 const Index = () => {
   const { detail } = useViewModel();
   const { base, user, finance, oilStation } = detail;
-  
+
   return (
     <PageContainer title="订单详情">
       <div className={styls.detailWrap}>

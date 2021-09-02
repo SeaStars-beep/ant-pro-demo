@@ -1,10 +1,8 @@
-
 import { PageContainer } from '@ant-design/pro-layout';
 import ProTable from '@ant-design/pro-table';
 import { Form, Input, DatePicker, Select, Button, Row, Col } from 'antd';
 import viewModel from './data';
 import styls from './index.less';
-
 
 const { RangePicker } = DatePicker;
 const Index = () => {
@@ -23,23 +21,23 @@ const Index = () => {
       <div className={styls.searchWrap}>
         <Form form={formRef} labelAlign="left">
           <Row gutter={{ xs: 4, sm: 8, md: 12 }}>
-              <Col span={8}>
-                <Form.Item name="orderSource" label="订单来源">
-                  <Select allowClear>
-                    <Select.Option value={1}>测试1</Select.Option>
-                    <Select.Option value={2}>测试2</Select.Option>
-                  </Select>
-                </Form.Item>
-              </Col>
-              <Col span={8}>
+            <Col span={8}>
+              <Form.Item name="orderSource" label="订单来源">
+                <Select allowClear>
+                  <Select.Option value={1}>测试1</Select.Option>
+                  <Select.Option value={2}>测试2</Select.Option>
+                </Select>
+              </Form.Item>
+            </Col>
+            <Col span={8}>
               <Form.Item name="payType" label="支付方式">
                 <Select allowClear>
                   <Select.Option value={1}>测试1</Select.Option>
                   <Select.Option value={2}>测试2</Select.Option>
                 </Select>
               </Form.Item>
-             </Col>
-             <Col span={8}>
+            </Col>
+            <Col span={8}>
               <Form.Item name="phone" label="手机号">
                 <Input allowClear />
               </Form.Item>
@@ -66,7 +64,7 @@ const Index = () => {
               <Form.Item name="payDt" label="支付时间">
                 <RangePicker allowClear />
               </Form.Item>
-            </Col>     
+            </Col>
             <Col span={8}>
               <Form.Item name="orderPayFlag" label="订单状态">
                 <Select allowClear>

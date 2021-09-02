@@ -1,10 +1,8 @@
-
 import { PageContainer } from '@ant-design/pro-layout';
 import ProTable from '@ant-design/pro-table';
 import { Form, Input, DatePicker, Select, Button, Row, Col } from 'antd';
 import viewModel from './data';
 import styls from './index.less';
-
 
 const { RangePicker } = DatePicker;
 const Index = () => {
@@ -72,7 +70,7 @@ const Index = () => {
                 </Select>
               </Form.Item>
             </Col>
-            
+
             <Col span={8}>
               <Form.Item name="payType" label="支付方式">
                 <Select allowClear>
@@ -111,7 +109,7 @@ const Index = () => {
               </Form.Item>
             </Col>
             <Col span={8}>
-              <Form.Item name="key2" label='退款订单号'>
+              <Form.Item name="key2" label="退款订单号">
                 <Input allowClear />
               </Form.Item>
             </Col>
