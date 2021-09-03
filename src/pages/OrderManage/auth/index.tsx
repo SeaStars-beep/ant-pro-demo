@@ -15,6 +15,15 @@ const Index = () => {
     handleReset,
     handleExport,
     queryParams,
+
+    orderSource,
+    handleProvinceChange,
+    initProvinceData,
+    handleCityChange,
+    cityData,
+    countryData,
+    oilSite,
+    handleOilSiteChange,
   } = viewModel();
 
   return (
@@ -35,8 +44,11 @@ const Index = () => {
             <Col span={8}>
               <Form.Item name="orderSource" label="订单来源">
                 <Select allowClear>
-                  <Select.Option value={1}>测试1</Select.Option>
-                  <Select.Option value={2}>测试2</Select.Option>
+                  {orderSource?.map((o) => (
+                    <Select.Option key={o?.sourceType} value={o?.sourceType}>
+                      {o?.sourceName}
+                    </Select.Option>
+                  ))}
                 </Select>
               </Form.Item>
             </Col>
@@ -65,9 +77,12 @@ const Index = () => {
             </Col>
             <Col span={8}>
               <Form.Item name="gasId" label="油站">
-                <Select allowClear>
-                  <Select.Option value={1}>测试1</Select.Option>
-                  <Select.Option value={2}>测试2</Select.Option>
+                <Select allowClear onChange={handleOilSiteChange}>
+                  {oilSite?.map((o) => (
+                    <Select.Option key={o?.stationCode} value={o?.stationCode}>
+                      {o?.stationName}
+                    </Select.Option>
+                  ))}
                 </Select>
               </Form.Item>
             </Col>
@@ -76,17 +91,35 @@ const Index = () => {
                 <Row>
                   <Col span={8}>
                     <Form.Item name="provinceCode" label="省" colon={false}>
-                      <Input allowClear />
+                      <Select allowClear onChange={handleProvinceChange}>
+                        {initProvinceData?.map((o) => (
+                          <Select.Option key={o?.provinceCode} value={o?.provinceCode}>
+                            {o?.provinceName}
+                          </Select.Option>
+                        ))}
+                      </Select>
                     </Form.Item>
                   </Col>
                   <Col span={8}>
                     <Form.Item name="cityCode" label="市" colon={false}>
-                      <Input allowClear />
+                      <Select allowClear onChange={handleCityChange}>
+                        {cityData?.map((o) => (
+                          <Select.Option key={o?.cityCode} value={o?.cityCode}>
+                            {o?.cityName}
+                          </Select.Option>
+                        ))}
+                      </Select>
                     </Form.Item>
                   </Col>
                   <Col span={8}>
                     <Form.Item name="countyCode" label="地区" colon={false}>
-                      <Input allowClear />
+                      <Select allowClear>
+                        {countryData?.map((o) => (
+                          <Select.Option key={o?.countyCode} value={o?.countyCode}>
+                            {o?.countyName}
+                          </Select.Option>
+                        ))}
+                      </Select>
                     </Form.Item>
                   </Col>
                 </Row>

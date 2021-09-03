@@ -1,4 +1,4 @@
-import { useState, useRef,useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { Form, message, Modal } from 'antd';
 import { history } from 'umi';
@@ -32,7 +32,7 @@ const useViewModel = () => {
 
   const [cityData, setCityData] = useState<{ cityCode: number; cityName: string }[]>([]);
   const [countryData, setCountryData] = useState<{ countyCode: number; countyName: string }[]>([]);
-  const [oilSite,setOilSite] = useState<{ stationCode: number; stationName: string }[]>([])
+  const [oilSite, setOilSite] = useState<{ stationCode: number; stationName: string }[]>([]);
 
   const commComfirm = (cxt = '是否确定' as ReactNode) => {
     return new Promise<boolean>((resolve) => {
@@ -159,7 +159,7 @@ const useViewModel = () => {
    */
   const handleSearch = async () => {
     const res = formRef.getFieldsValue();
-    setQueryParams({ ...res });
+    setQueryParams({ ...res, current: 1, pageSize: 20 });
   };
   /**
    * reset
@@ -192,22 +192,22 @@ const useViewModel = () => {
     const res = await initCountry(e?.target?.value);
     setCountryData(res);
   };
-  
+
   /**
    * 油站
    */
-  const getOilSite =  async(stationName ='') =>{
+  const getOilSite = async (stationName = '') => {
     setOilSite([]);
     const res = await initOilSite(stationName);
     setOilSite(res);
-  }
-  const handleOilSiteChange = async(e: any) =>{
-    getOilSite(e?.target?.value)
-  }
+  };
+  const handleOilSiteChange = async (e: any) => {
+    getOilSite(e?.target?.value);
+  };
 
-  useEffect(()=>{
-    getOilSite('')
-  },[])
+  useEffect(() => {
+    getOilSite('');
+  }, []);
 
   return {
     initTable,
@@ -219,9 +219,9 @@ const useViewModel = () => {
     handleExport,
     queryParams,
     payTypeData,
+
     orderSource,
     authTypeData,
-
     handleProvinceChange,
     initProvinceData,
     handleCityChange,

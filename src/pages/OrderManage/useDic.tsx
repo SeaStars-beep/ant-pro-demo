@@ -46,11 +46,11 @@ const useDic = () => {
     return data;
   };
   const initCity = async (cityName: string = '') => {
-    const { data } = await getCity({ cityName });
+    const { data =[]} = await getCity({ cityName });
     return data;
   };
   const initOilSite = async (stationName: string = '') => {
-    const { data } = await getOilStation({ stationName });
+    const { data =[] } = await getOilStation({ stationName });
     return data;
   };
 

@@ -181,7 +181,7 @@ const Index = () => {
                   </Col>
                   <Col span={8}>
                     <Form.Item name="cityCode" label="市" colon={false}>
-                      <Select allowClear onChange={handleCityChange} >
+                      <Select allowClear onChange={handleCityChange}>
                         {cityData?.map((o) => (
                           <Select.Option key={o?.cityCode} value={o?.cityCode}>
                             {o?.cityName}
