@@ -14,7 +14,8 @@ type TableParams = {
 };
 
 const { order } = services;
-const { queryByPage, toTicketPrint, downloadOrderOilInfo } = order;
+const { queryByPage, toTicketPrint, downloadOrderOilInfo, getTotal } = order;
+declare type ReqStatic = Omit<API.QueryOrder, 'current | pageSize'>;
 
 const useViewModel = () => {
   const {
@@ -33,6 +34,7 @@ const useViewModel = () => {
   const [cityData, setCityData] = useState<{ cityCode: number; cityName: string }[]>([]);
   const [countryData, setCountryData] = useState<{ countyCode: number; countyName: string }[]>([]);
   const [oilSite, setOilSite] = useState<{ stationCode: number; stationName: string }[]>([]);
+  const [staticsData, setStaticsData] = useState<API.ResTotal>();
 
   const commComfirm = (cxt = '是否确定' as ReactNode) => {
     return new Promise<boolean>((resolve) => {
@@ -155,11 +157,24 @@ const useViewModel = () => {
     };
   };
   /**
+   * 获取统计
+   */
+  const initStatics = async (req: ReqStatic) => {
+    const { data, success, message: msg = '' } = await getTotal(req);
+    if (!success) {
+      message.warn(msg);
+      return;
+    }
+    setStaticsData(data as API.ResTotal);
+  };
+
+  /**
    *  search
    */
   const handleSearch = async () => {
     const res = formRef.getFieldsValue();
     setQueryParams({ ...res, current: 1, pageSize: 20 });
+    initStatics({ ...res });
   };
   /**
    * reset
@@ -167,6 +182,7 @@ const useViewModel = () => {
   const handleReset = async () => {
     formRef.resetFields();
     setQueryParams({ current: 1, pageSize: 20 });
+    initStatics({} as ReqStatic);
   };
   /**
    * 导出excel
@@ -207,6 +223,7 @@ const useViewModel = () => {
 
   useEffect(() => {
     getOilSite('');
+    initStatics({} as ReqStatic);
   }, []);
 
   return {
@@ -229,6 +246,7 @@ const useViewModel = () => {
     countryData,
     oilSite,
     handleOilSiteChange,
+    staticsData,
   };
 };
 

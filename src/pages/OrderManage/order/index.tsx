@@ -2,7 +2,7 @@
 import { PageContainer } from '@ant-design/pro-layout';
 // import type { ProColumns, ActionType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
-import { Form, Input, DatePicker, Select, Button, Row, Col } from 'antd';
+import { Form, Input, DatePicker, Select, Button, Row, Col, Alert, Space } from 'antd';
 import viewModel from './data';
 
 import styls from './index.less';
@@ -28,6 +28,7 @@ const Index = () => {
     handleProvinceChange,
     oilSite,
     handleOilSiteChange,
+    staticsData,
   } = viewModel();
   return (
     <PageContainer>
@@ -218,6 +219,15 @@ const Index = () => {
         </Form>
       </div>
       <div className={styls.tableWrap}>
+        <Alert
+          message={
+            <Space>
+              <span>总交易金额:{staticsData?.totalAmountGun}元</span>
+              <span>实付总金额:{staticsData?.totalAmountPay}元</span>
+              <span>累计订单数:{staticsData?.totalCount} 笔</span>
+            </Space>
+          }
+        />
         <ProTable
           params={queryParams}
           toolBarRender={() => [

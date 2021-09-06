@@ -262,3 +262,15 @@ export async function getCounty(params: { countyName?: string }, options?: { [ke
     },
   );
 }
+
+/** 列表页统计信息 /order/api/order/getTotal     */
+export async function getTotal(body: API.QueryOrder, options?: { [key: string]: any }) {
+  return request<API.ResListCommon<API.ResTotal>>('/order/api/order/getTotal', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}

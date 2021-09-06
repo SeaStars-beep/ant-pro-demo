@@ -88,6 +88,9 @@ declare namespace API {
       amountDiscountCoupon?: number;
       oilDropletAmount?: number;
       payType?: PayType;
+      amountServiceCharge?: number;
+      amountBalance?: number; // 余额支付金额
+      amountDiscountVip?: number; // 会员优惠金额
     };
     user?: {
       phone: ?string;
@@ -105,6 +108,12 @@ declare namespace API {
       countyCode?: number;
       countyName?: string;
     };
+    log?: {
+      logType: number;
+      content: string;
+      createUser: string;
+      createTime: string;
+    }[];
   };
 
   type OrderList = {
@@ -131,5 +140,10 @@ declare namespace API {
     message?: string;
     success?: boolean;
     time?: string;
+  };
+  type ResTotal = {
+    totalCount?: number; // 总交易笔数
+    totalAmountGun?: number; // 总交易金额
+    totalAmountPay?: number; // 总实付金额
   };
 }

@@ -8,23 +8,23 @@
  */
 export default {
   dev: {
-    '/api/': {
-      target: 'http://10.7.22.106:8000',
-      changeOrigin: true,
-      // pathRewrite: { '^': '' },
-    },
+    // '/api/': {
+    //   target: 'http://59.110.8.36:8833',
+    //   changeOrigin: true,
+    //   pathRewrite: { '^': '' },
+    // },
     '/order/api/': {
-      target: 'https://v2.umijs.org/zh/config/#proxy',
+      target: 'http://reorder-dev.qqgyhk.com',
       changeOrigin: true,
       // pathRewrite: { '^': '' },
     },
   },
   test: {
-    '/api/': {
-      target: 'https://preview.pro.ant.design',
-      changeOrigin: true,
-      pathRewrite: { '^': '' },
-    },
+    // '/api/': {
+    //   target: 'https://preview.pro.ant.design',
+    //   changeOrigin: true,
+    //   pathRewrite: { '^': '' },
+    // },
     '/order/api/': {
       target: 'https://v2.umijs.org/zh/config/#proxy',
       changeOrigin: true,

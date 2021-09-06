@@ -110,6 +110,9 @@ async function getDetail (req: Request, res: Response, u: string){
                 amountDiscountCoupon: '@natural(1, 100)',
                 oilDropletAmount: '@natural(1, 100)',
                 payType: 2,
+                amountServiceCharge:'@natural(50, 100)',
+                amountBalance:'@natural(50, 100)',
+                amountDiscountVip:'@natural(50, 100)',
             },
             user: {
                 phone: '123456776',
@@ -126,7 +129,13 @@ async function getDetail (req: Request, res: Response, u: string){
                 cityName: '杭州市',
                 countyCode: 3303320,
                 countyName: '西湖区',
-            }
+            },
+            'log|2-10': [{
+                logType: '@natural(1, 10)',
+                content: '@csentence(4,20)',
+                createUser: '@csentence(4,8)',
+                createTime: '@date("yyyy-MM-dd HH:mm:ss")',
+            }]
         }
     });
 
@@ -341,6 +350,22 @@ async function toTicketPrint (req: Request, res: Response, u: string){
     return res.json(result);
 
 }
+async function getTotal (req: Request, res: Response, u: string){
+    await waitTime();
+    const result = Mock.mock({
+        code: 200,
+        time: '@date("yyyy-MM-dd HH:mm:ss")',
+        success: true,
+        message: '成功',
+        data: {
+            totalCount: '@natural(100, 500)',
+            totalAmountGun: '@natural(10000, 1000000)',
+            totalAmountPay: '@natural(10000, 1000000)',
+        }
+    });
+    return res.json(result);
+
+}
 
 export default {
     'POST /order/api/queryByPage': getOrderList,
@@ -360,5 +385,6 @@ export default {
     'POST /order/api/orderRefund/orderOilRefundApply': orderOilRefundApply,
     'POST /order/api/order/orderCancel': orderCancel,
     'POST /order/api/order/toTicketPrint': toTicketPrint,
+    'POST /order/api/order/getTotal': getTotal,
 
 }
