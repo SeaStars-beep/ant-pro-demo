@@ -1,10 +1,10 @@
 import type { Settings as LayoutSettings } from '@ant-design/pro-layout';
 import { PageLoading } from '@ant-design/pro-layout';
-import type { RunTimeLayoutConfig ,} from 'umi';
-import { history} from 'umi';
-import { notification } from 'antd'
-import type { RequestConfig } from 'umi'
-import type { Context } from 'umi-request'
+import type { RunTimeLayoutConfig } from 'umi';
+import { history } from 'umi';
+import { notification } from 'antd';
+import type { RequestConfig } from 'umi';
+import type { Context } from 'umi-request';
 import RightContent from '@/components/RightContent';
 import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
 
@@ -51,7 +51,7 @@ export async function getInitialState(): Promise<{
 // ProLayout 支持的api https://procomponents.ant.design/components/layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
-    // logo: ()=><span>小象加油</span>, logo
+    // logo: ()=><span>sss</span>, logo
     rightContentRender: () => <RightContent />,
     disableContentMargin: false,
     // waterMarkProps: { // 页面水印
@@ -73,7 +73,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   };
 };
 
-// 自定义request 
+// 自定义request
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',
@@ -97,7 +97,7 @@ const codeMessage = {
  * @see https://beta-pro.ant.design/docs/request-cn
  */
 const errorHandler = (error: any) => {
-  const {res: response } = error;
+  const { res: response } = error;
   if (response && response.status) {
     const errorText = codeMessage[response.status] || response.statusText;
     const { status, url } = response;
@@ -119,7 +119,7 @@ const errorHandler = (error: any) => {
 // https://umijs.org/zh-CN/plugins/plugin-request
 export const request: RequestConfig = {
   errorConfig: {
-    adaptor: (resData,ctx: Context) => {
+    adaptor: (resData, ctx: Context) => {
       errorHandler(ctx);
       return {
         ...resData,
@@ -129,4 +129,3 @@ export const request: RequestConfig = {
     },
   },
 };
-
