@@ -12,12 +12,12 @@ const Settings: LayoutSettings & {
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: '小象加油',
+  title: 'xxx',
   pwa: false,
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   iconfontUrl: '',
-  menu:{
-    locale: false
+  menu: {
+    locale: false,
   },
 };
 
